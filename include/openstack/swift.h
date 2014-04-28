@@ -33,8 +33,8 @@ struct swift_object {
 	json_object *object;
 };
 
-void swift_stat(struct keystone *);
 */
+void swift_stat(struct keystone *);
 
 #endif
 
