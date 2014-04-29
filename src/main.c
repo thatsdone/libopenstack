@@ -80,12 +80,16 @@ int main (int argc, char **argv)
 
 	if (username == NULL || tenantname == NULL || password == NULL ||
 		auth_url == NULL) {
-		printf("Specify username, tenantname, password and auth_url");
+		printf("Specify username, tenantname, password and auth_url\n");
 		exit(1);
 	}
 
 	keystone = keystone_authenticate(username, tenantname, password,
 					 auth_url);
+	if (keystone == NULL) {
+		printf("Authentication failed.\n");
+		return 1;
+	}
 
 	swift_stat(keystone);
 
